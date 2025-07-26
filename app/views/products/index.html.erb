@@ -1,2 +1,14 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Список товаров</h1>
+
+<ul id="products-list">
+  <% @products.each do |product| %>
+    <li>
+      <%= product.name %> - <%= number_to_currency(product.price, unit: "₽") %>
+      <button class="btn btn-sm btn-primary" data-id="<%= product.id %>">Details</button>
+    </li>
+  <% end %>
+</ul>
+
+<div id="product-details" class="mt-4"></div>
+
+<%= javascript_include_tag "application", type: "module" %>

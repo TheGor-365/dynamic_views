@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DynamicViews</title>
+    <title>Dynamic Views</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,8 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main class="container p-5 m-5">
+      <%= yield %>
+    </main>
   </body>
 </html>
