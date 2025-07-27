@@ -1,7 +1,9 @@
 <h1>Список товаров</h1>
+
 <div data-controller="test">
   <button data-action="click->test#hello" class="btn btn-info">Проверка Stimulus</button>
 </div>
+
 <ul id="products-list">
   <% @products.each do |product| %>
     <li>
@@ -27,6 +29,12 @@
       data-action="click->product-details#show">
       Details (Stimulus) — <%= product.name %>
     </button>
+
+    <!-- Vanilla JS + Fetch -->
+    <button class="btn btn-sm btn-info product-details-fetch-btn"
+            data-id="<%= product.id %>">
+      Details (Fetch)
+    </button>
   <% end %>
 </ul>
 
@@ -50,3 +58,9 @@
   <div data-product-details-target="details" class="mt-4"></div>
 </div> -->
 <div data-product-details-target="details" class="mt-4"></div>
+
+<hr>
+
+<!-- Fetch -->
+<h2>Детали (Fetch)</h2>
+<div id="fetch-product-details" class="mt-4"></div>

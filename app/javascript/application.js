@@ -3,6 +3,7 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 
 import "./products"
+import "./fetch_products"
 
 import $ from "jquery"
 window.$ = $
