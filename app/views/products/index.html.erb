@@ -4,11 +4,14 @@
   <% @products.each do |product| %>
     <li>
       <%= product.name %> - <%= number_to_currency(product.price, unit: "₽") %>
-      <button class="btn btn-sm btn-primary" data-id="<%= product.id %>">Details</button>
     </li>
+    <button class="btn btn-sm btn-primary product-details-btn" data-id="<%= product.id %>" data-turbo="false">
+      Details
+    </button>
   <% end %>
 </ul>
 
-<div id="product-details" class="mt-4"></div>
+<div id="product-details" class="mt-4">
+</div>
 
 <%= javascript_include_tag "application", type: "module" %>
