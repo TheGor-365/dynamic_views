@@ -1,28 +1,21 @@
-<<<<<<< HEAD
-# dynamic_views
-=======
-# README
+# Dynamic Views – 4 способа динамической подгрузки контента
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+В этом проекте реализованы 4 разных подхода для подгрузки динамического контента на страницу:
 
-Things you may want to cover:
+1. **jQuery + AJAX**
+2. **Turbo (Hotwire)**
+3. **Stimulus**
+4. **Vanilla JS (Fetch API)**
 
-* Ruby version
 
-* System dependencies
+Установка и запуск
 
-* Configuration
+Установить зависимости:
 
-* Database creation
+bundle install
+yarn install
 
-* Database initialization
+Запустить сервер:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
->>>>>>> Add basic app configuration
+bin/dev
+Открыть: http://localhost:3000
