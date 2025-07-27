@@ -12,8 +12,9 @@ class ProductsController < ApplicationController
     # else
     @product = Product.find(params[:id])
     respond_to do |format|
-      format.js   # product_details.js.erb
-      format.turbo_stream   # для Turbo
+      format.js           # AJAX
+      format.turbo_stream # Turbo
+      format.html { render partial: 'products/partials/product_details', locals: { product: @product } } # Stimulus
     end
   end
 end

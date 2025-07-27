@@ -1,25 +1,52 @@
 <h1>Список товаров</h1>
-
+<div data-controller="test">
+  <button data-action="click->test#hello" class="btn btn-info">Проверка Stimulus</button>
+</div>
 <ul id="products-list">
   <% @products.each do |product| %>
     <li>
       <%= product.name %> - <%= number_to_currency(product.price, unit: "₽") %>
     </li>
-    <button class="btn btn-sm btn-primary product-details-btn" data-id="<%= product.id %>" data-turbo="false">
+    <!-- AJAX кнопка -->
+    <button class="btn btn-sm btn-primary product-details-btn"
+            data-id="<%= product.id %>"
+            data-turbo="false">
       Details (AJAX)
     </button>
+
     <!-- Turbo кнопка -->
     <%= link_to "Details (TURBO)",
                 product_details_product_path(product, format: :turbo_stream),
-                data: { turbo_frame: "product-details", turbo_prefetch: "false" },
+                data: { turbo_frame: "turbo-product-details", turbo_prefetch: "false" },
                 class: "btn btn-sm btn-success" %>
+
+    <!-- Stimulus кнопка -->
+    <button
+      class="btn btn-sm btn-warning mb-2"
+      data-id="<%= product.id %>"
+      data-action="click->product-details#show">
+      Details (Stimulus) — <%= product.name %>
+    </button>
   <% end %>
 </ul>
 
-<div id="product-details" class="mt-4">
-</div>
+<hr>
+
+<!-- AJAX блок -->
+<h2>Детали (AJAX)</h2>
+<div id="ajax-product-details" class="mt-4"></div>
+
+<hr>
 
 <!-- Turbo Frame -->
-<turbo-frame id="product-details" class="mt-4"></turbo-frame>
+<h2>Детали (Turbo)</h2>
+<turbo-frame id="turbo-product-details" class="mt-4"></turbo-frame>
 
-<%= javascript_include_tag "application", type: "module" %>
+<hr>
+
+<!-- Stimulus -->
+<h2>Детали (Stimulus)</h2>
+<!-- <div data-controller="product-details">
+  <div data-product-details-target="details" class="mt-4"></div>
+</div> -->
+<div data-product-details-target="details" class="mt-4"></div>

@@ -2,7 +2,7 @@ import $ from "jquery";
 
 $(document).on("click", ".product-details-btn", function (e) {
   e.preventDefault();
-  console.log("Клик по кнопке Details");
+  console.log("Клик по кнопке Details (AJAX)");
   let id = $(this).data("id");
 
   $.ajax({
