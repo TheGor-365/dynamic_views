@@ -6,12 +6,20 @@
       <%= product.name %> - <%= number_to_currency(product.price, unit: "₽") %>
     </li>
     <button class="btn btn-sm btn-primary product-details-btn" data-id="<%= product.id %>" data-turbo="false">
-      Details
+      Details (AJAX)
     </button>
+    <!-- Turbo кнопка -->
+    <%= link_to "Details (TURBO)",
+                product_details_product_path(product, format: :turbo_stream),
+                data: { turbo_frame: "product-details", turbo_prefetch: "false" },
+                class: "btn btn-sm btn-success" %>
   <% end %>
 </ul>
 
 <div id="product-details" class="mt-4">
 </div>
+
+<!-- Turbo Frame -->
+<turbo-frame id="product-details" class="mt-4"></turbo-frame>
 
 <%= javascript_include_tag "application", type: "module" %>

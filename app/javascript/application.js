@@ -10,3 +10,9 @@ window.jQuery = $
 
 import Rails from "@rails/ujs"
 Rails.start()
+
+document.addEventListener("turbo:before-fetch-request", (event) => {
+  if (event.target.getAttribute("data-turbo-prefetch") === "false") {
+    event.preventDefault();
+  }
+});
